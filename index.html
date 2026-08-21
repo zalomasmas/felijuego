@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Granja de Medianoche</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-column">
+        <section class="canvas-card">
+          <div class="section-head">
+            <h2>Mapa de la granja</h2>
+            <p>
+              Recorre la finca, entra a edificios y usa el minimapa para ubicarte.
+            </p>
+          </div>
+          <div class="world-frame">
+            <canvas
+              id="gameCanvas"
+              width="1184"
+              height="736"
+              aria-label="Mapa de la granja"
+            ></canvas>
+            <div class="minimap-card">
+              <canvas
+                id="minimapCanvas"
+                width="190"
+                height="190"
+                aria-label="Minimapa"
+              ></canvas>
+              <strong id="locationLabel">Exterior</strong>
+            </div>
+            <div class="world-hud">
+              <div class="hud-strip">
+                <div class="hud-clock">
+                  <span id="dayLabel">Dia 1</span>
+                  <strong id="phaseLabel">Manana</strong>
+                  <span id="seasonLabel">Primavera</span>
+                  <div class="time-track">
+                    <div id="timeFill" class="time-fill"></div>
+                  </div>
+                </div>
+                <div class="hud-pill">
+                  <span>Monedas</span>
+                  <strong id="coinsValue">0</strong>
+                </div>
+                <div class="hud-health">
+                  <span>Vida</span>
+                  <div class="hud-health-track">
+                    <div id="playerHealthFill" class="hud-health-fill"></div>
+                  </div>
+                  <strong id="playerHealthValue">100</strong>
+                </div>
+                <div class="hud-pill">
+                  <span>Lugar</span>
+                  <strong id="sceneStateLabel">Exterior</strong>
+                </div>
+                <button id="journalToggle" class="hud-pill hud-action" type="button">Registro</button>
+              </div>
+            </div>
+            <div id="journalModal" class="journal-modal hidden" aria-hidden="true">
+              <div class="journal-window">
+                <div class="journal-head">
+                  <strong>Registro</strong>
+                  <button id="journalClose" class="journal-close" type="button">Cerrar</button>
+                </div>
+                <ul id="logList" class="log-list"></ul>
+              </div>
+            </div>
+          </div>
+          <div id="hotbar" class="hotbar" aria-label="Barra de herramientas">
+            <button class="hotbar-slot active" data-slot="1" data-tool="till">
+              <span class="slot-number">1</span>
+              <span class="slot-icon">Az</span>
+              <span class="slot-label">Arar</span>
+            </button>
+            <button class="hotbar-slot" data-slot="2" data-tool="plant">
+              <span class="slot-number">2</span>
+              <span class="slot-icon">Se</span>
+              <span class="slot-label">Plantar</span>
+            </button>
+            <button class="hotbar-slot" data-slot="3" data-tool="water">
+              <span class="slot-number">3</span>
+              <span class="slot-icon">Ag</span>
+              <span class="slot-label">Regar</span>
+            </button>
+            <button class="hotbar-slot" data-slot="4" data-tool="harvest">
+              <span class="slot-number">4</span>
+              <span class="slot-icon">Ho</span>
+              <span class="slot-label">Cosechar</span>
+            </button>
+            <button class="hotbar-slot" data-slot="5" data-tool="plant" data-seed="trigo">
+              <span class="slot-number">5</span>
+              <span class="slot-icon">Tr</span>
+              <span class="slot-label">Trigo</span>
+            </button>
+            <button class="hotbar-slot" data-slot="6" data-tool="plant" data-seed="maiz">
+              <span class="slot-number">6</span>
+              <span class="slot-icon">Mz</span>
+              <span class="slot-label">Maiz</span>
+            </button>
+            <button class="hotbar-slot" data-slot="7" data-tool="axe">
+              <span class="slot-number">7</span>
+              <span class="slot-icon">Ha</span>
+              <span class="slot-label">Hacha</span>
+            </button>
+            <button class="hotbar-slot" data-slot="8" data-tool="sword">
+              <span class="slot-number">8</span>
+              <span class="slot-icon">Es</span>
+              <span class="slot-label">Espada</span>
+            </button>
+            <button class="hotbar-slot" data-slot="9" data-tool="pickaxe">
+              <span class="slot-number">9</span>
+              <span class="slot-icon">Pi</span>
+              <span class="slot-label">Pico</span>
+            </button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
